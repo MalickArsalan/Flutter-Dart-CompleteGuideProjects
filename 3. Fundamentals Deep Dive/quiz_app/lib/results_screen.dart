@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/questions.dart';
-import 'package:quiz_app/questions_summary.dart';
+import 'package:quiz_app/questions_summary/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen(
-      {super.key, required this.chosenAnswers, required this.onRestartQuiz});
+      {super.key, required this.chosenAnswers, required this.onRestart});
 
-  final void Function() onRestartQuiz;
+  final void Function() onRestart;
 
   final List<String> chosenAnswers;
 
@@ -18,7 +18,7 @@ class ResultsScreen extends StatelessWidget {
       // loop body
 
       summary.add({
-        'questions_index': i,
+        'question_index': i,
         'question': questions[i].text,
         'correct_answer': questions[i].answers[0],
         'user_answer': chosenAnswers[i],
@@ -49,21 +49,27 @@ class ResultsScreen extends StatelessWidget {
           children: [
             Text(
                 style: GoogleFonts.lato(
-                    color: const Color.fromARGB(255, 201, 153, 251),
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                  color: const Color.fromARGB(255, 230, 200, 253),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
                 'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!'),
-            const SizedBox(height: 30),
+            const SizedBox(
+              height: 30,
+            ),
             QuestionsSummary(summaryData),
-            const SizedBox(height: 30),
+            const SizedBox(
+              height: 30,
+            ),
             TextButton.icon(
-                onPressed: onRestartQuiz,
-                icon: const Icon(Icons.refresh_sharp),
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color.fromARGB(255, 201, 153, 251),
-                ),
-                label: const Text('Restart Quiz'))
+              onPressed: onRestart,
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              icon: const Icon(Icons.refresh),
+              label: const Text('Restart Quiz'),
+            )
           ],
         ),
       ),
