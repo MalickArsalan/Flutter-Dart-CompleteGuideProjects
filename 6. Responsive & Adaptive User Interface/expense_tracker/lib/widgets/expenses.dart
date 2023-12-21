@@ -68,6 +68,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(
       child: Text('No expenses found. Start adding some!'),
     );
@@ -89,14 +91,29 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Chart(expenses: _registeredExpenses),
-          Expanded(
-            child: mainContent,
-          ),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(
+                  child: Chart(expenses: _registeredExpenses),
+                ), // Expanded constraint the child (i,e., Chart)
+                // to only take as much width as available in the Row after sizing the other Row children.
+                // If you have a child that tries to get as much width as it can get,
+                // and you have a parent that tries to get as much width as it can, you get an error because
+                // Flutter is not able to display UI
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            ),
     );
   }
 }
