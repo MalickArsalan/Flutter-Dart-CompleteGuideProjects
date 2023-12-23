@@ -7,12 +7,12 @@
     - Constraints
       - **height**: max. device height
       - **width**: max. device width
-⬇️
+  ⬇️
   - Column Widget:
     - Preferences:
       - **height**: as much as possible
       - **width**: as much as needed by children.
-⬇️
+  ⬇️
   - Result (Column size)
     - **height**: max. device height
     - **width**: max. device width
@@ -26,11 +26,11 @@ But every widget has different constraints for its child widget.
 - **Column constraint**:
   - **width**: 0 → depends on children.
   - **height**: 0 → INFINITY.
-⬇️
+  ⬇️
 - **Row constraint**:
   - **width**: 0 → INFINITY.
   - **height**: 0 → depends on children.
-⬇️
+  ⬇️
 - **Column constraint**:
   - **width**: 0 → depends on children.
   - **height**: 0 → INFINITY.
