@@ -8,14 +8,14 @@
       - **height**: max. device-height
       - **width**: max. device-width
 
-        ⬇️
+      ⬇️
   
   - Column Widget:
     - Preferences:
       - **height**: as much as possible
       - **width**: as much as needed by children.
   
-        ⬇️
+      ⬇️
   
   - Result (Column size)
     - **height**: max. device-height
@@ -38,9 +38,15 @@ But every widget has different constraints for its child widget.
   - **height**: 0 → depends on children.
   
     ⬇️
-  `
+
 - **Column constraint**:
   - **width**: 0 → depends on children.
   - **height**: 0 → INFINITY.
 
 **Problem**: No height constraint from the parent.
+
+## Building Adaptive, Cross-Platform App
+
+It means that your UI can also adapt to the platform on which it's being presented. And in general, you can use exactly the same widgets and styling no matter if you are running your app on Android or iOS. You can also adjust some widgets
+
+or styles if you want to.
